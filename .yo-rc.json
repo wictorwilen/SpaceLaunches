@@ -1,0 +1,9 @@
+{
+  "generator-teams": {
+    "promptValues": {
+      "developer": "Wictor Wilén"
+    },
+    "libraryName": "launches",
+    "generator-version": "4.0.0-preview.3"
+  }
+}
