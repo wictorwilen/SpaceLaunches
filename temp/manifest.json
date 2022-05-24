@@ -1,14 +1,14 @@
 {
   "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.13/MicrosoftTeams.schema.json",
   "manifestVersion": "1.13",
-  "id": "b94e79f0-dab0-11ec-a4db-c3d63815d46b",
-  "version": "0.0.1",
+  "id": "a2f79201-a205-4df1-9a22-0e000766f9f4",
+  "version": "0.0.3",
   "packageName": "launches",
   "developer": {
     "name": "Wictor Wilén",
-    "websiteUrl": "https://1ef4b38bdd7c.ngrok.io",
-    "privacyUrl": "https://1ef4b38bdd7c.ngrok.io/privacy.html",
-    "termsOfUseUrl": "https://1ef4b38bdd7c.ngrok.io/tou.html"
+    "websiteUrl": "https://0cbfd984d7b1.ngrok.io",
+    "privacyUrl": "https://0cbfd984d7b1.ngrok.io/privacy.html",
+    "termsOfUseUrl": "https://0cbfd984d7b1.ngrok.io/tou.html"
   },
   "name": {
     "short": "Space Launches",
@@ -28,7 +28,7 @@
     {
       "entityId": "d99b8c7b-ebec-4036-bfe5-c3f030250f22",
       "name": "Space Launces",
-      "contentUrl": "https://1ef4b38bdd7c.ngrok.io/spaceLauncesTab/?name={loginHint}&tenant={tid}&theme={theme}",
+      "contentUrl": "https://0cbfd984d7b1.ngrok.io/spaceLauncesTab/?name={loginHint}&tenant={tid}&theme={theme}",
       "scopes": [
         "personal"
       ]
@@ -38,7 +38,7 @@
   "connectors": [],
   "composeExtensions": [
     {
-      "botId": "00000000-0000-0000-0000-000000000000",
+      "botId": "23858254-a9df-41d9-ba14-245bc0316fb4",
       "canUpdateConfiguration": false,
       "commands": [
         {
@@ -63,7 +63,7 @@
     "messageTeamMembers"
   ],
   "validDomains": [
-    "1ef4b38bdd7c.ngrok.io"
+    "0cbfd984d7b1.ngrok.io"
   ],
   "showLoadingIndicator": false
 }

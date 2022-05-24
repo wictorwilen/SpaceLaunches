@@ -13,6 +13,7 @@ export const SpaceLaunchesTab = () => {
     const [{ inTeams, theme, context }] = useTeams();
     const [entityId, setEntityId] = useState<string | undefined>();
     const [launches, setLaunches] = useState<any[]>([]);
+    const [host, setHost] = useState<string>("");
 
     useEffect(() => {
         if (inTeams === true) {
@@ -25,6 +26,7 @@ export const SpaceLaunchesTab = () => {
     useEffect(() => {
         if (context) {
             setEntityId(context.page.id);
+            setHost(context.app.host.name + "/" + context.app.host.clientType);
         }
     }, [context]);
 
@@ -43,7 +45,7 @@ export const SpaceLaunchesTab = () => {
                 padding: ".8rem 0 .8rem .5rem"
             }}>
                 <Flex.Item>
-                    <Header content="🚀 Upcoming Rocket launches" />
+                    <Header content={`🚀 Upcoming Rocket launches hosted in ${host}`} />
                 </Flex.Item>
                 <Flex.Item>
                     <Grid columns={4}>
