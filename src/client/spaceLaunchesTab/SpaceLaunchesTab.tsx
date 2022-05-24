@@ -46,9 +46,9 @@ export const SpaceLaunchesTab = () => {
                     <Header content="🚀 Upcoming Rocket launches" />
                 </Flex.Item>
                 <Flex.Item>
-                    <Grid>
+                    <Grid columns={4}>
                         {launches.map((launch: any) => {
-                            return <Card key={launch.id} elevated>
+                            return <Card key={launch.id} elevated fluid>
                                 <CardHeader>
                                     <Flex gap="gap.small" >
                                         <Text content="🚀" />
@@ -58,7 +58,7 @@ export const SpaceLaunchesTab = () => {
                                 <CardBody>
                                     <Flex column gap="gap.small">
                                         <Image src={launch.image_url} style={{ height: "100px", objectFit: "cover" }} />
-                                        <Text content={launch.status.description} weight="light"/>
+                                        <Text content={launch.mission ? launch.mission.description : "TBD"} weight="light"/>
                                     </Flex>
                                 </CardBody>
                             </Card>;

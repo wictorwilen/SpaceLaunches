@@ -1,93 +1,48 @@
-# Space Launches - Microsoft Teams App
+# Space Launches - Demo of a multi-host Teams
 
-Generate a Microsoft Teams application.
+This demo shows a personal tab and a messaging extension that can be used in Microsoft Teams, Office.com and Outlook.
 
-TODO: Add your documentation here
+This project is built using the **[yo teams](https://aka.ms/yoteams)** application generator that creates Node.js based Teams, Office and Outlook applications.
 
-## Getting started with Microsoft Teams Apps development
+## Configure the example
 
-Head on over to [Microsoft Teams official documentation](https://developer.microsoft.com/en-us/microsoft-teams) to learn how to build Microsoft Teams Tabs or the [Microsoft Teams Yeoman generator docs](https://github.com/PnP/generator-teams/docs) for details on how this solution is set up.
+In order to run this example you need to
 
-## Project setup
+1. Register a new *Azure bot* service (choose single or multi-tenant)
+2. Add a new secret to the application for the bot
+3. Create a `.env` file in the project root folder with the contents as per below and replace the Bot App Id and Bot App Secret with your values
+4. Enable the *Microsoft Teams* and *Outlook* channels for the Azure Bot. (Important - don't forget to add the Outlook channel before you test it in Outlook)
 
-All required source code are located in the `./src` folder:
 
-* `client` client side code
-* `server` server side code
-* `public` static files for the web site
-* `manifest` for the Microsoft Teams app manifest
+``` env
+PUBLIC_HOSTNAME=launches.azurewebsites.net
 
-For further details see the [Yo Teams documentation](https://github.com/PnP/generator-teams/docs)
+# Id of the Microsoft Teams application
+APPLICATION_ID=b94e79f0-dab0-11ec-a4db-c3d63815d46b
+# Package name of the Microsoft Teams application
+PACKAGE_NAME=launches
 
-## Building the app
+# App Id and App Password for the Bot Framework bot
+MICROSOFT_APP_ID=REPLACE_WITH_YOUR_AZURE_BOT_APP_ID
+MICROSOFT_APP_PASSWORD=REPLACE_WITH_YOUR_AZURE_BOT_APP_SECRET
 
-The application is built using the `build` Gulp task.
+# Port for local debugging
+PORT=3007
 
-``` bash
-npm i -g gulp-cli
-gulp build
+# Debug settings, default logging "msteams"
+DEBUG=msteams
 ```
+ 
 
-## Building the manifest
+## Run the example
 
-To create the Microsoft Teams Apps manifest, run the `manifest` Gulp task. This will generate and validate the package and finally create the package (a zip file) in the `package` folder. The manifest will be validated against the schema and dynamically populated with values from the `.env` file.
+To run this example follow these steps:
 
-``` bash
-gulp manifest
-```
+1. Type `gulp ngrok-serve` or `gulp ngrok-serve --debug` in your console.
+2. Update your Azure bot registration with the temporary ngrok URL printed in the console
+3. Then upload the generated package (`/package/launches.zip`) to your Microsoft Teams app catalog
+4. Try it out in Teams, Outlook and Office.com and have fun
 
-## Deploying the manifest
+> NOTE: if you in Outlook on the web get an `errorCode` with the `BotNotProperlyConfigured` value then you either has not registered the Outlook channel or the feature has not yet rolled out to you. Eventually after adding the channel it will work.
 
-Using the `yoteams-deploy` plugin, automatically added to the project, deployment of the manifest to the Teams App store can be done manually using `gulp tenant:deploy` or by passing the `--publish` flag to any of the `serve` tasks.
-
-## Configuration
-
-Configuration is stored in the `.env` file.
-
-## Debug and test locally
-
-To debug and test the solution locally you use the `serve` Gulp task. This will first build the app and then start a local web server on port 3007, where you can test your Tabs, Bots or other extensions. Also this command will rebuild the App if you change any file in the `/src` directory.
-
-``` bash
-gulp serve
-```
-
-To debug the code you can append the argument `debug` to the `serve` command as follows. This allows you to step through your code using your preferred code editor.
-
-``` bash
-gulp serve --debug
-```
-
-## Useful links
-
-* [Debugging with Visual Studio Code](https://github.com/pnp/generator-teams/blob/master/docs/docs/vscode.md)
-* [Developing with ngrok](https://github.com/pnp/generator-teams/blob/master/docs/docs/ngrok.md)
-* [Developing with Github Codespaces](https://github.com/pnp/generator-teams/blob/master/docs/docs/codespaces.md)
-
-## Additional build options
-
-You can use the following flags for the `serve`, `ngrok-serve` and build commands:
-
-* `--no-linting` or `-l` - skips the linting of Typescript during build to improve build times
-* `--debug` - builds in debug mode and significantly improves build time with support for hot reloading of client side components
-* `--env <filename>.env` - use an alternate set of environment files
-* `--publish` - automatically publish the application to the Teams App store
-
-## Deployment
-
-The solution can be deployed to Azure using any deployment method.
-
-* For Azure Devops see [How to deploy a Yo Teams generated project to Azure through Azure DevOps](https://www.wictorwilen.se/blog/deploying-yo-teams-and-node-apps/)
-* For Docker containers, see the included `Dockerfile`
-
-## Logging
-
-To enable logging for the solution you need to add `msteams` to the `DEBUG` environment variable. See the [debug package](https://www.npmjs.com/package/debug) for more information. By default this setting is turned on in the `.env` file.
-
-Example for Windows command line:
-
-``` bash
-SET DEBUG=msteams
-```
-
-If you are using Microsoft Azure to host your Microsoft Teams app, then you can add `DEBUG` as an Application Setting with the value of `msteams`.
+**/GLHF WW**
